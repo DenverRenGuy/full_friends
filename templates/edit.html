@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Edit a Friend for Full Friends | Coding Dojo</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" type="text/css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>Edit Your Friend's Info</h1>
+                {% for friend in friends %}
+                    <form class="" action="/friends/{{ friend['id'] }}" method="post">
+
+                        <input type="text" name="first_name" value="{{ friend['first_name'] }}">
+                        <input type="text" name="last_name" value="{{ friend['last_name'] }}">
+                        <input type="hidden" name="id" value="{{ friend['id'] }}">
+
+                    <input type="submit" name="submit" value="Update Friend Record">
+                {% endfor %}
+            </form>
+        </div>
+    </body>
+</html>

@@ -23,3 +23,12 @@
     margin-top: 1em;
     padding: 1em;
 }
+
+.edit {
+    text-align: center;
+    width: 100%;
+}
+.edit input[type=submit]{
+    text-align: center;
+    width: 100%;
+}

@@ -15,22 +15,47 @@
                         <th>Last Name</th>
                         <th>First Name</th>
                         <th>Created At</th>
+                        <th>Edit Friend Info</th>
+                        <th>Delete a Friend Record</th>
                     </tr>
                     {% for friend in allFriends: %}
                         <tr>
                             <th>{{ friend['last_name'] }}</th>
                             <th>{{ friend['first_name'] }}</th>
                             <th>{{ friend['created_at'] }}</th>
+                            <th>
+                                <a href="/friends/{{ friend['id'] }}/edit"><button class="edit" type="button">Edit </button></a>
+                                <!-- <form class="edit" action="/edit" method="get">
+                                    <input type="hidden" name="id" value="{{ friend['id'] }}">
+                                    <input type="submit" name="edit" value="Edit">
+                                </form> -->
+                            </th>
+                            <th>
+                                <form class="edit" action="/friends/{{ friend['id'] }}/delete" method="post">
+                                    <input type="hidden" name="id" value="{{ friend['id'] }}">
+                                    <input type="submit" name="edit" value="Delete Friend Record">
+                                </form>
+                                <!-- <a href="/friends/{{ friend['id'] }}/delete"><button class="edit" type="button">Delete</button></a> -->
+                            </th>
                         </tr>
                     {% endfor %}
                 </table>
             </div>
             <div class="new-friend">
-                <form class="" action="/create" method="post">
+                <form class="" action="/friends" method="post">
                     <input type="text" name="first_name" placeholder="First Name" value="">
                     <input type="text" name="last_name" placeholder="Last Name" value="">
                     <input type="submit" name="submit" value="Add Friend Record to System">
                 </form>
+            </div>
+            <div class="message">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class=" {{category}} "> {{message}}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
 
             </div>
         </div>
