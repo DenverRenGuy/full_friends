@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    width: 70%;
+    margin: 0 auto;
+}
+
+.friends-table table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+
+}
+
+    .friends-table th, td{
+        padding: .3em;
+        text-align: left;
+    }
+
+.new-friend{
+    margin-top: 1em;
+    padding: 1em;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Full Friends CRUD Ops  | Coding Dojo</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='site.css') }}" type="text/css">
+    </head>
+    <body>
+        <div class="wrapper">
+            <h1>CRUD Operations for Friend Resource</h1>
+
+            <div class="friends-table">
+                <table>
+                    <tr>
+                        <th>Last Name</th>
+                        <th>First Name</th>
+                        <th>Created At</th>
+                    </tr>
+                    {% for friend in allFriends: %}
+                        <tr>
+                            <th>{{ friend['last_name'] }}</th>
+                            <th>{{ friend['first_name'] }}</th>
+                            <th>{{ friend['created_at'] }}</th>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="new-friend">
+                <form class="" action="/create" method="post">
+                    <input type="text" name="first_name" placeholder="First Name" value="">
+                    <input type="text" name="last_name" placeholder="Last Name" value="">
+                    <input type="submit" name="submit" value="Add Friend Record to System">
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>
